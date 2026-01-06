@@ -1,0 +1,35 @@
+{
+    "name": "sofy",
+    "description": "Simple. Offline. Fluid. Yours.",
+    "version": "1.0.0",
+    "type": "module",
+    "scripts": {
+        "dev": "node log.js dev & vite --config vite/config.dev.mjs",
+        "build": "node log.js build & vite build --config vite/config.prod.mjs",
+        "dev-nolog": "vite --config vite/config.dev.mjs",
+        "build-nolog": "vite build --config vite/config.prod.mjs",
+        "cap:sync": "cap sync",
+        "cap:android": "cap open android",
+        "android": "npm run build && cap sync android && cap open android",
+        "android:run": "npm run build && cap sync android && cap run android"
+    },
+    "devDependencies": {
+        "@capacitor/android": "^8.0.0",
+        "@capacitor/cli": "^8.0.0",
+        "terser": "^5.39.0",
+        "vite": "^6.3.1"
+    },
+    "dependencies": {
+        "@capacitor-community/keep-awake": "^8.0.0",
+        "@capacitor/core": "^8.0.0",
+        "@capacitor/dialog": "^8.0.0",
+        "@capacitor/filesystem": "^8.0.0",
+        "@capacitor/preferences": "^8.0.0",
+        "@capacitor/status-bar": "^8.0.0",
+        "@capawesome/capacitor-file-picker": "^8.0.0",
+        "capacitor-directory-picker": "^0.0.1",
+        "music-metadata": "^11.10.3",
+        "phaser": "^3.90.0",
+        "phaser3-rex-plugins": "^1.80.17"
+    }
+}

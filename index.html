@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#1f1f1f">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>S.O.F.Y.</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+    
+    html, body {
+      width: 100%;
+      height: 100%;
+      background: transparent;
+
+      overflow: hidden; 
+      position: fixed; 
+      overscroll-behavior: none; 
+      
+      touch-action: none;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+
+    /* ИЗМЕНЕНИЕ: Загружаем кастомный шрифт */
+    @font-face {
+      font-family: 'AppFont';
+      src: url('assets/fonts/F.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    #game-container {
+      width: 100vw !important;
+      height: 100vh !important;
+      position: absolute;
+      top: 0; 
+      left: 0;
+      z-index: 1;
+    }
+    
+    #game-container canvas {
+      width: 100% !important;
+      height: 100% !important;
+      display: block;
+      image-rendering: -webkit-optimize-contrast !important;
+      image-rendering: crisp-edges !important;
+    }
+
+    #bubble-canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
+  </style>
+</head>
+<body>
+  <div id="game-container"></div>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

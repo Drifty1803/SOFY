@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">S.O.F.Y.</string>
+    <string name="title_activity_main">S.O.F.Y.</string>
+    <string name="package_name">io.github.toraburumeka.sofy</string>
+    <string name="custom_url_scheme">io.github.toraburumeka.sofy</string>
+</resources>

@@ -1,0 +1,30 @@
+{
+  "appId": "io.github.toraburumeka.sofy",
+  "appName": "S.O.F.Y.",
+  "webDir": "dist",
+  
+  "server": {
+    "androidScheme": "https",
+    "cleartext": true,
+    "allowNavigation": ["*"]
+  },
+  
+  "android": {
+    "allowMixedContent": true,
+    "backgroundColor": "#1f1f1f",
+    "webContentsDebuggingEnabled": true,
+    "appendUserAgent": "Phaser-Game-HighQuality/1.0"
+  },
+  
+  "ios": {
+    "allowsInlineMediaPlayback": true
+  },
+  
+  "plugins": {
+    "StatusBar": {
+      "overlaysWebView": true,
+      "style": "LIGHT",
+      "backgroundColor": "#00000000"
+    }
+  }
+}
