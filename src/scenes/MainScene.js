@@ -233,7 +233,6 @@ export class MainScene extends Phaser.Scene {
   onTap(pointer) {
     if (this.isUpdating) return;
 
-    // 1. Обработка клика вне палитры (закрытие)
     if (this.isPaletteMode) {
         const centerX = this.scale.width / 2;
         const centerY = this.scale.height / 2;
@@ -246,7 +245,6 @@ export class MainScene extends Phaser.Scene {
         return;
     }
 
-    // 2. Обработка кнопок редактирования
     if (this.editButtons.visible) {
         const coverInfo = this.carousel.getCoverAtPosition(pointer.x, pointer.y);
         
@@ -258,7 +256,6 @@ export class MainScene extends Phaser.Scene {
         return; 
     }
 
-    // 3. Обработка открытого меню добавления (если оно используется)
     if (this.isAddMenuOpen) {
       const coverInfo = this.carousel.getCoverAtPosition(pointer.x, pointer.y);
       if (!coverInfo || !coverInfo.isAddButton) {
@@ -266,39 +263,29 @@ export class MainScene extends Phaser.Scene {
       }
       return;
     }
-    
-    // 4. Основная логика кликов по карусели
+
     const coverInfo = this.carousel.getCoverAtPosition(pointer.x, pointer.y);
     
      if (coverInfo) {
-      // === ЛОГИКА КНОПКИ "+" (ADD BUTTON) ===
       if (coverInfo.isAddButton) {
         if (coverInfo.index === StateManager.getCenterIndex()) {
             
-            // [ИЗМЕНЕНИЕ НАЧАЛО] -----------------------------
             const playlists = StateManager.getPlaylists();
-            
-            // Если плейлистов НЕТ, запускаем туториал
+
             if (playlists.length === 0) {
-                // Вызываем метод handleInteraction у компонента AddPlaylistCover
-                // Мы получаем доступ к нему через объект карусели
                 const isTutorialFinished = this.carousel.addPlaylistCover.handleInteraction();
                 
                 if (isTutorialFinished) {
-                    // Если вернул true (3-й тап), открываем выбор папки
                     this.onPickFolder();
                 }
             } else {
-                // Если плейлисты УЖЕ ЕСТЬ, открываем выбор папки сразу
                 this.onPickFolder();
             }
-            // [ИЗМЕНЕНИЕ КОНЕЦ] ------------------------------
             
         }
         return;
       }
-      
-      // Выбор обычного плейлиста
+
       if (coverInfo.index === StateManager.getCenterIndex()) {
         if (StateManager.isSelectionMode()) {
           this.selectPlaylist(coverInfo.playlistId);

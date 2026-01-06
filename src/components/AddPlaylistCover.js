@@ -33,7 +33,6 @@ export class AddPlaylistCover {
       wordWrap: { width: size - 40, useAdvancedWrap: true }
     }).setOrigin(0.5);
 
-    // === НОВОЕ: отдельный элемент для стрелочки ===
     this.arrowText = this.scene.add.text(0, 0, '>', {
       fontFamily: 'AppFont',
       fontSize: `${Math.max(16, size * 0.08)}px`,
@@ -41,13 +40,12 @@ export class AddPlaylistCover {
       align: 'center'
     }).setOrigin(0.5);
 
-    this.arrowText.setVisible(false); // по умолчанию скрыта
+    this.arrowText.setVisible(false);
 
     this.container.add([this.background, this.text, this.arrowText]);
     this.container.setSize(size, size);
   }
 
-  // === ЛОГИКА ВЗАИМОДЕЙСТВИЯ ===
   handleInteraction() {
     if (this.isTyping) return false;
 
@@ -56,7 +54,6 @@ export class AddPlaylistCover {
       this.arrowTimer = null;
     }
 
-    // если кликнули — стрелку прячем сразу (чтобы не мигала на следующем шаге)
     this.arrowText.setVisible(false);
 
     if (this.tutorialStep === 0) {
@@ -76,11 +73,9 @@ export class AddPlaylistCover {
   typewriteText(message) {
     this.isTyping = true;
 
-    // основному тексту — нужный стиль
     const fontSize = Math.max(16, this.size * 0.08);
     this.text.setStyle({ fontSize: `${fontSize}px`, color: '#ffffff' });
 
-    // стрелке — тот же стиль (можно отдельно настроить)
     this.arrowText.setStyle({ fontSize: `${fontSize}px`, color: '#ffffff' });
     this.arrowText.setVisible(false);
 
@@ -98,14 +93,11 @@ export class AddPlaylistCover {
         if (currentIndex === message.length) {
           this.isTyping = false;
 
-          // ВАЖНО: позиционируем стрелку ПОСЛЕ того, как текст полностью напечатан
-          // чтобы не влиять на разметку текста.
           this.arrowTimer = this.scene.time.delayedCall(500, () => {
-            // стрелка ниже текста (эквивалентно "\n\n>")
-            const gap = fontSize * 1.4; // подбери, если хочешь больше/меньше отступ
+
+            const gap = fontSize * 1.4;
             const textHeight = this.text.height;
 
-            // т.к. text origin = 0.5, его низ = y + height/2
             this.arrowText.setPosition(
               this.text.x,
               this.text.y + (textHeight / 2) + gap
