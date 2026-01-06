@@ -10,10 +10,10 @@
 </p>
 
 <p align="center">
-  <img src="public/screenshots/player_1.png" alt="Screenshot 1" width="200" style="border-radius:16px;"/>
-  <img src="public/screenshots/carousel.png" alt="Screenshot 2" width="200" style="border-radius:16px;"/>
-  <img src="public/screenshots/player_2.png" alt="Screenshot 3" width="200" style="border-radius:16px;"/>
-  <img src="public/screenshots/palette.png" alt="Screenshot 4" width="200" style="border-radius:16px;"/>
+  <img src="public/screenshots/player_1.jpg" alt="Screenshot 1" width="200" style="border-radius:16px;"/>
+  <img src="public/screenshots/carousel.jpg" alt="Screenshot 2" width="200" style="border-radius:16px;"/>
+  <img src="public/screenshots/player_2.jpg" alt="Screenshot 3" width="200" style="border-radius:16px;"/>
+  <img src="public/screenshots/palette.jpg" alt="Screenshot 4" width="200" style="border-radius:16px;"/>
 </p>
 
 ---
